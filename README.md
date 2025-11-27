@@ -39,14 +39,22 @@ Narrow settings (≤512 units, high LR, large batch) produced λ_max ≈ 1–25 
 ```
 project/
 │
-├── main.py            # CLI entry point
-├── data.py            # MNIST loaders + subset support
-├── models.py          # MLP/CNN architectures (configurable width, BN)
-├── training.py        # Config dataclass, schedulers, progress bars
-├── landscape.py       # Hessian, sharpness, flatness, connectivity
-├── analysis.py        # Experiment orchestration, correlations
-├── visualization.py   # Connectivity, correlation, spectrum plots
-├── landscape_analysis_results.json  # Latest metrics + histories
+├── main.py                      # Legacy CLI / framework
+├── data.py, models.py, ...      # Original MNIST + landscape stack
+├── autoland/                    # New modular pipeline package
+│   ├── __init__.py
+│   ├── config.py                # ExperimentConfig + suites
+│   ├── data.py                  # Deterministic MNIST loaders
+│   ├── models.py                # MLP/ConvNet/ResNet builders
+│   ├── optim.py                 # Adam/AdamW/SGD + schedulers
+│   ├── training.py              # TrainResult + seeded loops
+│   ├── metrics.py               # Hessian, sharpness, flatness, etc.
+│   ├── pipeline.py              # Multi-seed runs, connectivity, 2D surfaces
+│   ├── plotting.py              # Accuracy/metric/connectivity/surface plots
+│   └── main.py                  # CLI (width/optimizer/scheduler sweeps)
+├── auto_landscape_runner.py     # Standalone entry point wrapper
+├── autoland_runs/               # Generated summaries/plots (width sweep, etc.)
+├── landscape_analysis_results.json
 └── README.md
 ```
 
