@@ -1,0 +1,27 @@
+output_root: autoland_results
+plots: true
+save_state_dicts: false
+experiments:
+  - name: mnist_wide_adamw
+    dataset: mnist
+    architecture: wide_mlp
+    optimizer: adamw
+    epochs: 30
+    batch_size: 128
+    lr: 0.0005
+    scheduler: cosine
+    hidden_size: 2048
+    weight_decay: 0.0005
+    extra_metrics: ["flatness"]
+    notes: "Baseline wide MLP on MNIST"
+  - name: fashion_sgd_cnn
+    dataset: fashion_mnist
+    architecture: cnn
+    optimizer: sgd
+    epochs: 25
+    batch_size: 128
+    lr: 0.01
+    scheduler: step
+    hidden_size: 512
+    weight_decay: 0.0001
+    extra_metrics: []

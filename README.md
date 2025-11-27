@@ -1,8 +1,26 @@
 Loss Landscape Geometry & Mode Connectivity in Wide Neural Networks
 ==================================================================
 
-This repository provides a modular, reproducible framework for probing the loss landscape of neural networks on MNIST.  
-It measures how architectural width and optimization settings influence curvature, flatness, mode connectivity, and generalization.
+A modular, research-oriented framework to analyze the loss landscape structure of neural networks.
+The goal is to understand how width, optimization, and training dynamics shape curvature, sharpness, flatness, and connectivity of minima.
+
+This repository includes Hessian-based metrics, flatness estimators, mode connectivity interpolation, 2D slices, spectral analysis, and correlation studies — all reproducible and configurable.
+
+⭐ Why This Matters
+
+Training neural networks is not only about reducing loss — it is fundamentally about finding good regions of the loss landscape.
+
+This project helps understand:
+
+Why wider networks generalize better
+
+Why some minima are flat and others are sharp
+
+How two independently trained models can lie in the same basin
+
+How optimization + architecture jointly shape curvature
+
+This toolkit provides a clean, modular way to run such experiments.
 
 ## Key Findings (Wide MLP2: width 4096, AdamW, cosine LR)
 
@@ -72,5 +90,6 @@ All outputs (metrics JSON, connectivity/correlation PNGs) are versioned in the r
 * Extend to CNN/ResNet architectures and other datasets.
 * Explore non-linear connectivity paths (Bezier, quadratic).
 * Compare optimizers under identical training budgets.
+* End-to-end sweeps (width, optimizer, scheduler, nonlinear connectivity, dual-minima 2D grids) are already scripted inside `autoland/`; they simply require extended runtime to execute across all configurations. Once compute time is available, running those commands will produce the full set of figures described in the roadmap (accuracy/λ_max/trace vs width, optimizer and schedule studies, Bezier connectivity, multi-minima surfaces), building directly on the code committed here.
 
 
