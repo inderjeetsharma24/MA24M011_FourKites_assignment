@@ -65,17 +65,6 @@ All outputs (metrics JSON, connectivity/correlation PNGs) are versioned in the r
 * **Sharpness/flatness**: ε-sharpness, multi-radius flatness measure, gradient norm, noise robustness.
 * **Mode connectivity**: Linear interpolation loss curve, barrier height, optional 2D slicing.
 
-## Tips for Reproducing Benign Regime
-
-| Hyperparameter | Recommended |
-|----------------|-------------|
-| Hidden size    | 4096–8192   |
-| Optimizer      | AdamW (lr 5e‑4, wd 5e‑4) or SGD (lr 1e‑3, mom 0.85) |
-| Batch size     | 128 (adds helpful stochasticity) |
-| Scheduler      | Cosine decay to 1e‑5 |
-| Epochs         | ≥50 (mode connectivity stabilizes late) |
-
-Smaller widths or overly aggressive LR/batch combinations will revert to sharp, unstable landscapes.
 
 ## Future Directions
 
@@ -84,6 +73,4 @@ Smaller widths or overly aggressive LR/batch combinations will revert to sharp, 
 * Explore non-linear connectivity paths (Bezier, quadratic).
 * Compare optimizers under identical training budgets.
 
-## License
 
-MIT License.
