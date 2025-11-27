@@ -6,7 +6,7 @@ The goal is to understand how width, optimization, and training dynamics shape c
 
 This repository includes Hessian-based metrics, flatness estimators, mode connectivity interpolation, 2D slices, spectral analysis, and correlation studies — all reproducible and configurable.
 
-⭐ Why This Matters
+Why This Matters ?
 
 Training neural networks is not only about reducing loss — it is fundamentally about finding good regions of the loss landscape.
 
